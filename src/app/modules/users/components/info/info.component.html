@@ -1,0 +1,48 @@
+<!-- 
+    https://stackblitz.com/edit/github-dynamic-form?file=src%2Fapp%2Fcomponents%2Fdynamic-field%2Fdynamic-field.directive.ts
+    Lo que continua es la creación de usuarios, tomar de base el ejemplo del enlace
+    para crear formularios dinámicos 
+-->
+
+
+<!-- Main content -->
+
+<mat-card class="margen" *ngIf="authService.userData as user">
+  <mat-card-header>
+    <mat-card-title>
+      Información de usuario
+    </mat-card-title>
+    <mat-card-subtitle>
+      Última sesión: {{ authService.getLastLoginAt$ | async | date: "short" }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <ng-container>
+      <div fxLayout="row" fxLayoutGap="25px">
+        <div fxFlex="20">
+          <img
+            class="align-self-start mr-5 img-thumbnail rounded-circle"
+            src="{{ user.photoURL ? user.photoURL : '/assets/dummy-user.png' }}"
+            alt="{{ user.displayName }}"
+          />
+        </div>
+
+        <div fxFlex="80">
+          <div>
+            <h1>Hola {{ user.displayName ? user.displayName : "" }} !</h1>
+            <p>
+              Id usuario: <strong>{{ user.uid }}</strong>
+            </p>
+            <p>
+              Email: <strong>{{ user.email }}</strong>
+            </p>
+            <p>
+              Email verificado: <strong>{{ user.emailVerified }}</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

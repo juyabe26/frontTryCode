@@ -1,0 +1,14 @@
+<div fxLayout="column" style="margin: 25px">
+  <div fxFlex="50">
+    <dynamic-form [fields]="regConfig" (submit)="submit($event)">
+    </dynamic-form>
+  </div>
+
+  <wkr-table-dynamic
+    fxFill
+    [inColumns$]="columnasTabla$"
+    [inData$]="personas$"
+    (outClickButton)="onVer($event)"
+  >
+  </wkr-table-dynamic>
+</div>

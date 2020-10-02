@@ -1,0 +1,14 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>Walkers</span>
+    <button mat-button [routerLink]="[routeInfoUser]">Home</button>
+    <button mat-button [routerLink]="[routeFormUser]">Personas</button>
+    <button mat-button [routerLink]="[routeUsersPlanet]">Personas por planeta</button>
+    <span class="spacer"></span>
+    <button mat-icon-button aria-label="Menú">
+      <mat-icon (click)="onLogout()">menu</mat-icon>
+    </button>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

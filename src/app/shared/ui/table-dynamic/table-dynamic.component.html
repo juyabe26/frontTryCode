@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <span>Usuarios</span>
+</mat-toolbar>
+<mat-table #table [dataSource]="dataSource">
+  <ng-container
+    *ngFor="let column of inColumns$ | async"
+    [cdkColumnDef]="column?.id"
+  >
+    <div *ngIf="column?.id !== 'button'">
+      <mat-header-cell *cdkHeaderCellDef>{{
+        column?.description
+      }}</mat-header-cell>
+      <mat-cell *cdkCellDef="let row">
+        {{ row && column?.id && column?.id ? row[column?.id] : "" }}
+      </mat-cell>
+    </div>
+    <div *ngIf="column?.id === 'button'">
+      <mat-header-cell *cdkHeaderCellDef>{{
+        column?.description
+      }}</mat-header-cell>
+      <mat-cell *cdkCellDef="let row">
+        <button  (click)="onClickButton(row)">
+          {{ column?.description }}
+        </button>
+      </mat-cell>
+    </div>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns$ | async">
+  </mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns$ | async"> </mat-row>
+</mat-table>

@@ -1,0 +1,24 @@
+<div *ngIf="persona$ | async as persona" style="margin: 25px;">
+  <div fxLayout="row">
+    <label>
+      <strong> Nombre: </strong> {{ persona.primerNombre }}
+      {{ persona.segundoNombre }} {{ persona.primerApellido }}
+      {{ persona.segundoApellido }}
+    </label>
+  </div>
+  <div>
+    <label> <strong> Visitas: </strong> {{ persona.contador }} </label>
+  </div>
+  <div>
+    <label> <strong> Dirección: </strong> {{ persona.direccion }} </label>
+  </div>
+  <div>
+    <label> <strong> Edad: </strong> {{ persona.edad }} </label>
+  </div>
+  <div>
+    <label> <strong> Fecha nacimiento: </strong> {{ persona.fechaNacimiento | date: 'dd/MM/yyy' }} </label>
+  </div>
+  <div>
+    <label> <strong> identificacion: </strong> {{ persona.identificacion }} </label>
+  </div>
+</div>
